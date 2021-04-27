@@ -1,0 +1,14 @@
+# this file tell travis what to do every time when the changes are pushed to github
+
+language: python
+python:
+  - docker-
+
+service:
+  - docker
+
+before_script: pip install docker-compose
+
+script:
+  - docker-compose run app sh -c "py manage.py test && flake8"
+# flake8 is the lintin tool
