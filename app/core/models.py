@@ -10,7 +10,7 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address')
         user = self.model(email=self.normalize_email(email), **extra_fields)
-        # normalize_email is a helper function comes with BaseUserManager for normalizing the email like making them lowercase
+        # normalize_email is a helper function comes with BaseUserManager for checking the email after @ is in lowercase
         user.set_password(password)
         user.save(using=self._db)
 
