@@ -2,7 +2,7 @@
 
 language: python
 python:
-  - docker-
+  - "3.6"
 
 service:
   - docker
