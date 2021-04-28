@@ -10,7 +10,7 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         # first argument is the title
         # second argument is the fields
-        # _ is the alias name for gettext imported above 
+        # _ is the alias name for gettext imported above
         (None, {'fields': ('email', 'password')}),
         (_('Personal Info'), {'fields': ('name',)}),
         (
