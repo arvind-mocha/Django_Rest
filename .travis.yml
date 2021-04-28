@@ -7,8 +7,11 @@ python:
 service:
   - docker
 
+# installing docker compose because we use it to run commands on docker
 before_script: pip install docker-compose
 
 script:
   - docker-compose run app sh -c "python manage.py test && flake8"
-# flake8 is the lintin tool
+# we are running unit test and flake8 every time when we push our code to the git repository using travis ci
+# flake 8 is just a linting tool used to check grammer of code eg: space after , and unused variables etc
+

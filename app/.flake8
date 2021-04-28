@@ -1,9 +1,13 @@
+# flake 8 is just a linting tool used to check grammer of code eg: space after , and unused variables etc
+
 [flake8]
 
-# files to ignore wihile linting
+max-line-length = 120
+
+# files to ignore while linting
 
 exclude = 
-  migrations
+  migrations,
   __pycache__,
   manage.py,
   settings.py
