@@ -10,8 +10,18 @@ ENV PYTHONUNBUFFERED 1
 # Copying requirements.txt from local env to docker
 COPY ./requirements.txt /requirements.txt  
 
+# For Postgres sql Database
+RUN apk add --update --no-cache postgresql-client
+
+# temporary dependencies
+RUN apk add --update --no-cache --virtual .tmp-build-deps \
+      gcc libc-dev linux-headers postgresql-dev
+
 # installs the requirements.txt which is copied from the local env into docker
 RUN pip install install -r /requirements.txt
+
+# deleting temporary dependencies for postgres
+RUN apk del .tmp-build-deps
 
 # creating a directory inside docker
 RUN mkdir /app
@@ -19,7 +29,7 @@ RUN mkdir /app
 # making that directory as the working directory
 WORKDIR /app
 
-# Copying the app directory in our local machine into docker
+# Copying the app directory from local machine to docker
 COPY ./app /app
 
 # creating a user to run only this application instead of using root user, this is for security purpose

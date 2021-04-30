@@ -2,7 +2,7 @@
 
 [flake8]
 
-max-line-length = 150
+max-line-length = 200
 
 # files to ignore while linting
 
