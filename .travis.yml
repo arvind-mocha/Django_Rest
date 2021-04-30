@@ -11,7 +11,7 @@ service:
 before_script: pip install docker-compose
 
 script:
-  - docker-compose run app sh -c "python manage.py wait_for_db && test && flake8"
+  - docker-compose run app sh -c "python manage.py wait_for_db && python manage.py test && flake8"
 # we are running unit test and flake8 every time when we push our code to the git repository using travis ci
 # flake 8 is just a linting tool used to check grammer of code eg: space after , and unused variables etc
 
